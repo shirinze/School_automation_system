@@ -1,0 +1,26 @@
+﻿@model Teacher
+@{
+    ViewData["Title"] = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Yeni Öğretmen Ekle</h1>
+
+@if (ViewBag.TeacherAddError != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.TeacherAddError
+    </div>
+}
+
+<form asp-controller="Teacher" asp-action="Ekle" method="post">
+    <input type="text" name="TeacherName" placeholder="Öğretmen Adı Giriniz" /><br /><br />
+    <input type="text" name="TeacherSurname" placeholder="Öğretmen Soyadı Giriniz" /><br /><br />
+    <select class="custom-select" name="LessonID">
+        <option selected>Ders Seçiniz</option>
+        <option value="1">Matematik</option>
+        <option value="2">Türkçe</option>
+    </select>
+    <input type="submit" value="Kaydet" class="btn btn-success" />
+</form>
+
